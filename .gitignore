@@ -1,2 +1,5 @@
 #ignore docs and screens to be marked
 docs
+*.docx
+*.zip
+*.txt
