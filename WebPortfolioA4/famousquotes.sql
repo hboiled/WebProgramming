@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 28, 2020 at 05:20 AM
+-- Generation Time: Feb 28, 2020 at 08:44 AM
 -- Server version: 10.4.8-MariaDB
--- PHP Version: 7.3.11
+-- PHP Version: 7.3.10
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -47,7 +47,7 @@ INSERT INTO `famousquotes` (`ID`, `Content`, `Source`) VALUES
 (6, 'If you tell the truth, you don\'t have to remember anything.', 'Mark Twain'),
 (7, 'A friend is someone who knows all about you and still loves you.', 'Elbert Hubbard'),
 (8, 'Without music, life would be a mistake.', 'Friedrich Nietzsche'),
-(9, 'The difference between genius and stupidity is: genius has its l', 'Alexandre Dumas-fils'),
+(9, 'Everything you can imagine is real', 'Pablo Picasso'),
 (10, 'If you can make a woman laugh, you can make her do anything.', 'Marilyn Monroe');
 
 --
