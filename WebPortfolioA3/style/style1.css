@@ -1,0 +1,17 @@
+body {
+	background-color: brown;
+	text-align: center;
+}
+
+label {
+	font-size: xx-large;
+	font-weight: bold;
+}
+
+form {
+	display: inline-block;
+}
+
+#content {
+	font-size: xx-large;	
+}
