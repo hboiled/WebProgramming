@@ -22,9 +22,6 @@
     $randNum = rand(1, 10);
     $statement = "Select * from famousquotes Where ID=".$randNum.";";
 
-    //printf("host info: %s\n", mysqli_get_host_info($connection));
-    //printf("%d", $randNum);
-
     if ($res = mysqli_query($connection, $statement)) {        
         if ($record = mysqli_fetch_row($res)) {
             printf("<p class='content'>%s</p>", $record[1], );
