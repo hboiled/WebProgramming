@@ -36,7 +36,8 @@ for ($i = 0; $i < 100; $i++) {
     imagestring($img, 31, 0, $height - 35, "count", $black);
 
     // build graph
-foreach ($nums as $key => $occ) {         
+foreach ($nums as $key => $occ) { 
+    // build col height based on max count val        
     $colHeight = ($height / 100) * (($occ / $maxHeight) * 100);
     $x1 = $colWidth * $key;
     $y1 = $height - $colHeight;
