@@ -2,12 +2,12 @@
     $nums = array(1=>0, 2=>0, 3=>0, 4=>0, 5=>0, 6=>0, 7=>0, 8=>0, 9=>0, 10=>0);
 
     // generate random nums
-    for ($i = 0; $i < 100; $i++) {
-        $randNum = rand(1, 10);
-        if (array_key_exists($randNum, $nums)) {
-            $nums[$randNum]++;
-        }
+for ($i = 0; $i < 100; $i++) {
+    $randNum = rand(1, 10);
+    if (array_key_exists($randNum, $nums)) {
+        $nums[$randNum]++;
     }
+}
 
     // size and dimensions
     $cols  = count($nums); 
@@ -36,17 +36,18 @@
     imagestring($img, 31, 0, $height - 35, "count", $black);
 
     // build graph
-    foreach ($nums as $key => $occ) {         
-        $colHeight = ($height / 100) * (($occ / $maxHeight) * 100);
-        $x1 = $colWidth * $key;
-        $y1 = $height - $colHeight;
-        $x2 = $colWidth * ($key + 1) - $padding;
-        $y2 = $height - 35;
+foreach ($nums as $key => $occ) { 
+    // build col height based on max count val        
+    $colHeight = ($height / 100) * (($occ / $maxHeight) * 100);
+    $x1 = $colWidth * $key;
+    $y1 = $height - $colHeight;
+    $x2 = $colWidth * ($key + 1) - $padding;
+    $y2 = $height - 35;
 
-        imagefilledrectangle($img,$x1,$y1,$x2,$y2,$gray); 
-        imagestring($img, 10, ($x1 + $colWidth/4), $y2, $occ, $black);
-        imagestring($img, 10, ($x1 + $colWidth/4), ($y2 + 15), $key, $black);
-    }
+    imagefilledrectangle($img, $x1, $y1, $x2, $y2, $gray); 
+    imagestring($img, 10, ($x1 + $colWidth/4), $y2, $occ, $black);
+    imagestring($img, 10, ($x1 + $colWidth/4), ($y2 + 15), $key, $black);
+}
  
     // set header img name
     header("Content-type: image/png"); 
