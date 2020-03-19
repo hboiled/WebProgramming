@@ -1,24 +1,27 @@
 <?php
     include "../shared/header.php";
-    require_once('../private/db_init.php'); 
+    require_once('../private/db_init.php');
     
+    // outcome records info of the validation process
     $outcome = "";
-    $validName = False;
-    $validEmail = False;
+    $validName = false;
+    $validEmail = false;
     $userdata = array("name"=>"", "email"=>"");
-    if (isset($_POST["SubmitButton"])) {        
+    // userdata represents the user, insert_user will validate it accordin to its keys
+    if (isset($_POST["SubmitButton"])) {
         if (preg_match("/[a-zA-Z']+(?:\s|-)*[a-zA-Z']+(?:\s|-)*[a-zA-Z']+$/", $_POST["name"])) {
             $outcome = "Name - valid, ";
-            $validName = True;
+            $validName = true;
         } else {
             $outcome = "Name - invalid, ";
         }
-        if (preg_match("/([a-zA-z0-9\.]*@[a-zA-Z]*\.(?:com(?:\.au)?|net))$/", $_POST["email"])) {
+        if (preg_match("/([a-zA-z0-9\.]*@(?:[a-zA-Z0-9\.])+\.(?:com(?:\.au)?|net))$/", $_POST["email"])) {
             $outcome .= "Email - valid ";
-            $validEmail = True;
+            $validEmail = true;
         } else {
-            $outcome .= "Email - invalid ";            
+            $outcome .= "Email - invalid ";
         }
+        // only prepare query if boolean flags are valid
         if ($validName && $validEmail) {
             $outcome .= "--Adding to database..." . $userdata["name"]. $userdata["email"];
             $userdata["name"] = $_POST["name"];
@@ -28,7 +31,6 @@
             } else {
                 $outcome .= "</br>" . mysqli_error($connection);
             }
-
         } else {
             $outcome .= "</br>Error! Please make sure both fields are valid.";
         }
@@ -49,6 +51,8 @@
         <li>Email must end in either .com, .net, or .com.au</li>
     </ul>
 </p>
+
+<!-- form using POST, handle the submission on the same page -->
 <form action="" method="POST">
     <label for="name">Name:</label>
     <input type="text" name="name">
@@ -57,11 +61,10 @@
     <input type="submit" name="SubmitButton"/>
 </form>
 
-
 <p class="result">Outcome of query: </p>
 
-
 <?php
+    //display validation outcome, advise user to follow directions
     if (isset($outcome)) {
         echo "<p>$outcome</p>";
     }

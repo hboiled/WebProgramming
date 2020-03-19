@@ -7,6 +7,11 @@ li.nav {
 	float: left;
 }
 
+.result {
+	color: rgb(197, 0, 0);
+	font-weight: bolder;
+}
+
 #title {
     display: block;	
     padding-left: 1em;

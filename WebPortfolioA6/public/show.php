@@ -5,10 +5,6 @@
     $strQuery = "SELECT * FROM user_table";
     $query = mysqli_query($connection, $strQuery);
 
-    // if ($result = $query) {
-    //     echo "Returned rows are: " . mysqli_num_rows($result);
-    //     mysqli_free_result($result);
-    // }
 ?>
 <h1>List of Database Entries</h1>
 
@@ -19,6 +15,7 @@
         <td>Email</td>
     </tr>
         <?php
+            // generate entries based on how many rows
             while ($row = mysqli_fetch_array($query, MYSQLI_NUM)) {
                 echo "<tr>";
                 echo "<td>".$row[0]."</td>";
